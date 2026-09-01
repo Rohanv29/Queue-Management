@@ -613,11 +613,7 @@ console.log(metricCounters);
 if(data.waiting.length === 0){
 
     queueContainer.innerHTML = `
-        <div style="
-            text-align:center;
-            padding:2rem;
-            color:var(--text-muted);
-        ">
+        <div class="text-center p-8 text-text-muted">
             No active tickets in queue
         </div>
     `;
@@ -628,28 +624,21 @@ console.log("RENDERING WAITING", data.waiting);
     data.waiting.map(customer => {
 
         return `
-            <div class="queue-list-row">
+            <div class="flex items-center justify-between py-[0.65rem] px-[0.85rem] rounded-lg border border-border-color bg-bg-secondary animate-slide-in-left">
 
-                <div style="
-                    display:flex;
-                    align-items:center;
-                    gap:0.75rem;
-                ">
+                <div class="flex items-center gap-3">
 
-                    <span class="queue-list-token">
+                    <span class="font-bold font-heading">
                         ${customer.tokenNumber}
                     </span>
 
-                    <span style="
-                        font-size:0.75rem;
-                        color:var(--text-muted);
-                    ">
+                    <span class="text-xs text-text-muted">
                         ${customer.serviceType}
                     </span>
 
                 </div>
 
-                <span class="queue-list-time">
+                <span class="text-xs text-text-muted">
                     Waiting
                 </span>
 
@@ -668,15 +657,15 @@ for(let i = 1; i <= 4; i++){
     );
 
     countersContainer.innerHTML += `
-        <div class="counter-row">
+        <div class="flex items-center justify-between py-[0.65rem] px-[0.85rem] rounded-lg border border-border-color bg-bg-secondary">
 
-            <div class="counter-info">
+            <div class="flex flex-col">
 
-                <span class="counter-num">
+                <span class="font-semibold text-[0.85rem]">
                     Counter ${i}
                 </span>
 
-                <span class="counter-type">
+                <span class="text-[0.7rem] text-text-muted">
                     ${
                         servingCustomer
                         ? servingCustomer.serviceType
@@ -686,27 +675,23 @@ for(let i = 1; i <= 4; i++){
 
             </div>
 
-            <div style="
-                display:flex;
-                align-items:center;
-                gap:1rem;
-            ">
+            <div class="flex items-center gap-4">
 
                 ${
                     servingCustomer
                     ?
                     `
-                    <span class="counter-serving-token">
+                    <span class="font-heading font-bold text-[0.95rem] text-primary">
                         ${servingCustomer.tokenNumber}
                     </span>
 
-                    <span class="counter-status-tag status-active">
+                    <span class="text-xs font-semibold py-[2px] px-[8px] rounded-[10px] bg-accent-glow text-accent">
                         Serving
                     </span>
                     `
                     :
                     `
-                    <span class="counter-status-tag status-idle">
+                    <span class="text-xs font-semibold py-[2px] px-[8px] rounded-[10px] bg-border-color text-text-muted">
                         Idle
                     </span>
                     `
@@ -1002,12 +987,12 @@ async function serveNext() {
       }
 
       return `
-        <div class="queue-list-row">
-          <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <span class="queue-list-token">${t.token}</span>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">${t.service}</span>
+        <div class="flex items-center justify-between py-[0.65rem] px-[0.85rem] rounded-lg border border-border-color bg-bg-secondary animate-slide-in-left">
+          <div class="flex items-center gap-3">
+            <span class="font-bold font-heading">${t.token}</span>
+            <span class="text-xs text-text-muted">${t.service}</span>
           </div>
-          <span class="queue-list-time">${timeText}</span>
+          <span class="text-xs text-text-muted">${timeText}</span>
         </div>
       `;
     }).reverse().join('');
@@ -1016,16 +1001,16 @@ async function serveNext() {
   // Render Counters
   // function renderCounters() {
   //   countersContainer.innerHTML = state.counters.map(c => {
-  //     const statusClass = c.status === 'Serving' ? 'status-active' : 'status-idle';
+  //     const statusClass = c.status === 'Serving' ? 'bg-accent-glow text-accent' : 'bg-border-color text-text-muted';
   //     return `
-  //       <div class="counter-row">
-  //         <div class="counter-info">
-  //           <span class="counter-num">${c.name}</span>
-  //           <span class="counter-type">${c.type}</span>
+  //       <div class="flex items-center justify-between py-[0.65rem] px-[0.85rem] rounded-lg border border-border-color bg-bg-secondary">
+  //         <div class="flex flex-col">
+  //           <span class="font-semibold text-[0.85rem]">${c.name}</span>
+  //           <span class="text-[0.7rem] text-text-muted">${c.type}</span>
   //         </div>
-  //         <div style="display: flex; align-items: center; gap: 1rem;">
-  //           ${c.status === 'Serving' ? `<span class="counter-serving-token">${c.token}</span>` : ''}
-  //           <span class="counter-status-tag ${statusClass}">${c.status}</span>
+  //         <div class="flex items-center gap-4">
+  //           ${c.status === 'Serving' ? `<span class="font-heading font-bold text-[0.95rem] text-primary">${c.token}</span>` : ''}
+  //           <span class="text-xs font-semibold py-[2px] px-[8px] rounded-[10px] ${statusClass}">${c.status}</span>
   //         </div>
   //       </div>
   //     `;

@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const app = express();
-
+const status=require('express-status-monitor')
 const http = require("http");
 const { Server } = require("socket.io");
 const { Resend } = require("resend");
@@ -31,7 +31,7 @@ io.on("connection",(socket)=>{
     });
 
 });
-
+app.use(status());
 const db = require("./config/mongoose-connection");
 const path = require('path');
 const ejs = require('ejs');
@@ -65,6 +65,7 @@ app.use(express.urlencoded({
     extended:true
 }));
 
+app.use(express.static("public"))
 app.use(express.static(
     path.join(__dirname,"public")
 ));
