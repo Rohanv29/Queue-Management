@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "build:css": "npx tailwindcss -i ./public/css/src/index.css -o ./public/css/index.css",
+    "build:css": "npx tailwindcss -i ./public/css/src/index.css -o ./public/css/index.css --minify",
     "watch:css": "npx tailwindcss -i ./public/css/src/index.css -o ./public/css/index.css --watch"
   },
   "devDependencies": {

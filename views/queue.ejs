@@ -7,7 +7,7 @@
     <title>Dashboard | Smart Queue Management</title>
 
     <link rel="stylesheet" href="/css/index.css">
-
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -170,7 +170,7 @@
 
         document.getElementById("queueList").innerHTML = data.waiting.map(token => {
             return `
-                <div class="queue-list-row">
+                <div class="flex items-center justify-between py-[0.65rem] px-[0.85rem] rounded-lg border border-border-color bg-bg-secondary animate-slide-in-left">
                     <span>
                         Token ${token.tokenNumber}
                     </span>
@@ -183,7 +183,7 @@
 
         document.getElementById("counterList").innerHTML = data.serving.map(token => {
             return `
-                <div class="queue-list-row">
+                <div class="flex items-center justify-between py-[0.65rem] px-[0.85rem] rounded-lg border border-border-color bg-bg-secondary animate-slide-in-left">
                     <span>
                         Counter ${token.counterId}
                     </span>
@@ -202,7 +202,7 @@
 
         if(!data){
             document.getElementById("searchResult").innerHTML = `
-                <div class="queue-list-row">
+                <div class="flex items-center justify-between py-[0.65rem] px-[0.85rem] rounded-lg border border-border-color bg-bg-secondary animate-slide-in-left">
                     Token not found
                 </div>
             `;
@@ -211,22 +211,22 @@
 
         document.getElementById("searchResult").innerHTML = `
             <div class="mt-[10px] flex flex-col gap-2">
-                <div class="queue-list-row">
+                <div class="flex items-center justify-between py-[0.65rem] px-[0.85rem] rounded-lg border border-border-color bg-bg-secondary animate-slide-in-left">
                     <span>Status</span>
                     <span>${data.status}</span>
                 </div>
 
-                <div class="queue-list-row">
+                <div class="flex items-center justify-between py-[0.65rem] px-[0.85rem] rounded-lg border border-border-color bg-bg-secondary animate-slide-in-left">
                     <span>Service</span>
                     <span>${data.serviceType}</span>
                 </div>
 
-                <div class="queue-list-row">
+                <div class="flex items-center justify-between py-[0.65rem] px-[0.85rem] rounded-lg border border-border-color bg-bg-secondary animate-slide-in-left">
                     <span>Position</span>
                     <span>${data.position || "-"}</span>
                 </div>
 
-                <div class="queue-list-row">
+                <div class="flex items-center justify-between py-[0.65rem] px-[0.85rem] rounded-lg border border-border-color bg-bg-secondary animate-slide-in-left">
                     <span>Counter</span>
                     <span>${data.counterId || "Not provided"}</span>
                 </div>

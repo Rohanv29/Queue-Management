@@ -82,69 +82,126 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="pt-[calc(var(--header-height)+60px)] pb-20 overflow-hidden relative after:content-[''] after:absolute after:bottom-[10%] after:left-[-5%] after:w-[400px] after:h-[400px] after:bg-[radial-gradient(circle,var(--accent-glow)_0%,transparent_70%)] after:-z-10 after:pointer-events-none before:content-[''] before:absolute before:top-[-10%] before:right-[-5%] before:w-[500px] before:h-[500px] before:bg-[radial-gradient(circle,var(--primary-glow)_0%,transparent_70%)] before:-z-10 before:pointer-events-none" id="hero">
-    <div class="container mx-auto px-3 pb-[15px] max-w-[1280px] grid grid-cols-2 gap-8 items-center max-[768px]:grid-cols-1 max-[768px]:text-center">
-      <div class="max-w-[600px] reveal max-[768px]:mx-auto">
-        <div class="inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-[13px] py-[5.6px] rounded-[30px] text-[0.85rem] font-[500] mb-6 text-text-secondary">
-          <span class="inline-block w-2.5 h-2.5 bg-accent rounded-full animate-[pulse_2s_infinite]"></span> Version 2.0 Live Showcase
-        </div>
-        <h1 class="text-6xl max-[580px]:text-[2.5rem] font-[700] leading-[1.15] mb-6 tracking-[-0.02em]">
-          Transform Customer Waiting Experience with <span class="bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">Smart Queue Management</span>
-        </h1>
-        <p class="text-[1.25rem] text-text-secondary mb-10">
-          Track queues in real time, reduce waiting time, and deliver a better customer experience.
-        </p>
-        <div class="flex gap-4 max-[768px]:justify-center">
-          <button class="btn inline-flex items-center justify-center px-6 py-2.5 rounded-lg font-[600] cursor-pointer transition-all duration-200 gap-2 bg-primary text-white hover:bg-primary-hover hover:shadow-primary-glow hover:-translate-y-[1px] btn-demo" id="hero-btn-demo" href="/demo">Request Demo</button>
-          <a href="/dashboard" class="btn inline-flex items-center justify-center px-6 py-2.5 rounded-lg font-[600] cursor-pointer transition-all duration-200 gap-2 bg-bg-tertiary text-text-primary border border-border-color hover:bg-border-color hover:-translate-y-[1px]" id="hero-btn-secondary">Experience Now</a>
-        </div>
+  <section
+  class="pt-[calc(var(--header-height)+60px)] pb-20 overflow-hidden relative
+         after:content-[''] after:absolute after:bottom-[10%] after:left-[-5%]
+         after:w-[400px] after:h-[400px]
+         after:bg-[radial-gradient(circle,var(--accent-glow)_0%,transparent_70%)]
+         after:-z-10 after:pointer-events-none
+         before:content-[''] before:absolute before:top-[-10%] before:right-[-5%]
+         before:w-[500px] before:h-[500px]
+         before:bg-[radial-gradient(circle,var(--primary-glow)_0%,transparent_70%)]
+         before:-z-10 before:pointer-events-none"
+  id="hero"
+>
+
+  <div
+    class="container mx-auto px-3 pb-[15px] max-w-[1280px]
+           grid grid-cols-2 gap-8 items-center
+           max-[768px]:grid-cols-1 max-[768px]:text-center"
+  >
+
+    <!-- Left Content -->
+    <div class="max-w-[600px] reveal max-[768px]:mx-auto">
+
+       
+      <h1
+        class="text-6xl max-[580px]:text-[2.5rem]
+               font-[700] leading-[1.15] mb-6 tracking-[-0.02em]"
+      >
+        Transform Customer Waiting Experience with
+
+        <span
+          class="bg-gradient-to-br from-primary to-accent
+                 bg-clip-text text-transparent"
+        >
+          Smart Queue Management
+        </span>
+      </h1>
+
+      <p class="text-[1.25rem] text-text-secondary mb-10">
+        Track queues in real time, reduce waiting time, and deliver a better
+        customer experience.
+      </p>
+
+      <div class="flex gap-4 max-[768px]:justify-center">
+
+        <button
+          class="btn inline-flex items-center justify-center
+                 px-6 py-2.5 rounded-lg font-[600]
+                 cursor-pointer transition-all duration-200 gap-2
+                 bg-primary text-white
+                 hover:bg-primary-hover hover:shadow-primary-glow
+                 hover:-translate-y-[1px] btn-demo"
+          id="hero-btn-demo"
+        >
+          Request Demo
+        </button>
+
+        <a
+          href="/dashboard"
+          class="btn inline-flex items-center justify-center
+                 px-6 py-2.5 rounded-lg font-[600]
+                 cursor-pointer transition-all duration-200 gap-2
+                 bg-bg-tertiary text-text-primary
+                 border border-border-color
+                 hover:bg-border-color hover:-translate-y-[1px]"
+          id="hero-btn-secondary"
+        >
+          Experience Now
+        </a>
+
       </div>
-      <!-- Dashboard with Glassmorphism bg-->
-      <!-- <div class="relative w-full reveal">
-        
-        <div class="bg-glass-bg backdrop-blur-[20px] border border-glass-border rounded-2xl shadow-glass-shadow p-6 transition-all duration-500 [transform:perspective(1000px)_rotateY(-10deg)_rotateX(10deg)] hover:[transform:perspective(1000px)_rotateY(-3deg)_rotateX(3deg)] max-md:transform-none max-md:mt-12 max-md:hover:transform-none" id="hero-preview-card">
-          <div class="flex items-center justify-between mb-6 border-b border-border-color pb-3">
-            <div class="text-[0.9rem] font-semibold text-text-muted">SmartQueue Dashboard Preview</div>
-            <i class="fa-solid fa-arrows-spin text-primary"></i>
-          </div>
-
-          <div class="grid grid-cols-3 gap-4 mb-6">
-            <div class="bg-bg-secondary border border-border-color p-4 rounded-xl">
-              <div class="text-2xl font-bold text-text-primary" id="hero-stat-waiting">14</div>
-              <div class="text-[0.75rem] text-text-muted font-[500]">Waiting</div>
-            </div>
-            <div class="bg-bg-secondary border border-border-color p-4 rounded-xl">
-              <div class="text-2xl font-bold text-text-primary" id="hero-stat-wait">4.2m</div>
-              <div class="text-[0.75rem] text-text-muted font-[500]">Avg Wait Time</div>
-            </div>
-            <div class="bg-bg-secondary border border-border-color p-4 rounded-xl">
-              <div class="text-2xl font-bold text-text-primary" id="hero-stat-efficiency">94%</div>
-              <div class="text-[0.75rem] text-text-muted font-[500]">Staff Efficiency</div>
-            </div>
-          </div>
-
-          <div class="bg-bg-secondary border border-border-color rounded-xl p-3">
-            <div class="flex items-center justify-between py-2 px-1 text-[0.8rem] border-b border-border-color">
-              <span>Token A-102 (General Query)</span>
-              <span class="px-2 py-0.5 rounded-[10px] font-semibold text-[0.7rem] bg-accent-glow text-accent">Serving Counter 1</span>
-            </div>
-            <div class="flex items-center justify-between py-2 px-1 text-[0.8rem] border-b border-border-color">
-              <span>Token VIP-203 (VIP Desk)</span>
-              <span class="px-2 py-0.5 rounded-[10px] font-semibold text-[0.7rem] bg-accent-glow text-accent">Serving Counter 2</span>
-            </div>
-            <div class="flex items-center justify-between py-2 px-1 text-[0.8rem] border-b border-border-color">
-              <span>Token B-146 (Billing Office)</span>
-              <span class="px-2 py-0.5 rounded-[10px] font-semibold text-[0.7rem] bg-primary-glow text-primary">In Queue - 3m</span>
-            </div>
-            <div class="flex items-center justify-between py-2 px-1 text-[0.8rem]">
-              <span>Token S-155 (Tech Support)</span>
-              <span class="px-2 py-0.5 rounded-[10px] font-semibold text-[0.7rem] bg-primary-glow text-primary">Completed - 1m</span>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
-  </section>
+
+
+    <!-- Queue Management Visual -->
+    <div class="relative w-full reveal">
+
+      <!-- Neon glow -->
+      <div
+        class="absolute inset-4 rounded-2xl
+               bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400
+               opacity-30 blur-2xl
+               pointer-events-none"
+      ></div>
+
+      <!-- Neon gradient border -->
+      <div
+        class="relative rounded-2xl p-[2px]
+               bg-gradient-to-br from-blue-500 via-cyan-400 to-teal-400
+               shadow-[0_0_15px_rgba(34,211,238,0.35),0_0_40px_rgba(59,130,246,0.18)]"
+      >
+
+        <div
+  class="relative w-full reveal"
+  style="
+    border: 2px solid #22d3ee;
+    border-radius: 18px;
+    padding: 3px;
+    box-shadow:
+      0 0 8px rgba(34, 211, 238, 0.8),
+      0 0 20px rgba(34, 211, 238, 0.5),
+      0 0 45px rgba(59, 130, 246, 0.3);
+  "
+>
+  <img
+    src="/counter.png"
+    alt="Smart Queue Management"
+    style="
+      display: block;
+      width: 100%;
+      border-radius: 14px;
+    "
+  >
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
   <!-- FEATURES SECTION -->
   <section class="py-[100px] px-0 relative" id="features">
@@ -571,8 +628,8 @@
           <h3 class="text-[1.25rem] font-bold mb-3 plan-name">Starter Plan</h3>
           <p class="text-[0.9rem] text-text-muted mb-8 plan-desc">Best for single branch clinics and small customer desks.</p>
           <div class="mb-8 flex items-baseline gap-1 plan-price-box">
-            <span class="text-[1.5rem] font-bold plan-currency">$</span>
-            <span class="text-[3.5rem] font-[800] font-heading leading-none plan-price">19</span>
+            <span class="text-[1.5rem] font-bold plan-currency">₨</span>
+            <span class="text-[3.5rem] font-[800] font-heading leading-none plan-price">100</span>
             <span class="text-[0.9rem] text-text-muted plan-period">/month</span>
           </div>
           <ul class="flex flex-col gap-4 mb-10 flex-1 plan-features-list">
@@ -590,8 +647,8 @@
           <h3 class="text-[1.25rem] font-bold mb-3 plan-name">Professional Plan</h3>
           <p class="text-[0.9rem] text-text-muted mb-8 plan-desc">Tailored for busy branch offices and corporate centers.</p>
           <div class="mb-8 flex items-baseline gap-1 plan-price-box">
-            <span class="text-[1.5rem] font-bold plan-currency">$</span>
-            <span class="text-[3.5rem] font-[800] font-heading leading-none plan-price">49</span>
+            <span class="text-[1.5rem] font-bold plan-currency">₨</span>
+            <span class="text-[3.5rem] font-[800] font-heading leading-none plan-price">149</span>
             <span class="text-[0.9rem] text-text-muted plan-period">/month</span>
           </div>
           <ul class="flex flex-col gap-4 mb-10 flex-1 plan-features-list">
@@ -609,8 +666,8 @@
           <h3 class="text-[1.25rem] font-bold mb-3 plan-name">Enterprise Plan</h3>
           <p class="text-[0.9rem] text-text-muted mb-8 plan-desc">For large hospitals, banks, and government institutions.</p>
           <div class="mb-8 flex items-baseline gap-1 plan-price-box">
-            <span class="text-[1.5rem] font-bold plan-currency">$</span>
-            <span class="text-[3.5rem] font-[800] font-heading leading-none plan-price">129</span>
+            <span class="text-[1.5rem] font-bold plan-currency">₨</span>
+            <span class="text-[3.5rem] font-[800] font-heading leading-none plan-price">249</span>
             <span class="text-[0.9rem] text-text-muted plan-period">/month</span>
           </div>
           <ul class="flex flex-col gap-4 mb-10 flex-1 plan-features-list">

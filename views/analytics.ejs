@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Dashboard | Smart Queue Management</title>
 
     <link rel="stylesheet" href="/css/index.css">
@@ -213,7 +213,7 @@
         
         document.getElementById("recentCompleted").innerHTML = data.recentCompleted.map(token => {
             return `
-                <div class="queue-list-row">
+                <div class="flex items-center justify-between py-[0.65rem] px-[0.85rem] rounded-lg border border-border-color bg-bg-secondary animate-slide-in-left">
                     <span>
                         Token ${token.tokenNumber}
                     </span>
