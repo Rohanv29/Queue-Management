@@ -1,114 +1,303 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="dark">
+
 <head>
-    <title>Signup</title>
+    <title>Signup | SmartQueue</title>
+
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        page: "#070d18",
+                        panel: "#0b1524",
+                        item: "#111c2e",
+                        border: "#1e2d43",
+                        muted: "#71829d",
+                        primary: "#3b82f6"
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
 
-   <header id="header">
-    <div class="container nav-container">
-      <a href="/" class="logo" id="nav-logo" aria-label="Smart Queue Homepage">
-        <svg viewBox="0 0 24 24">
-          <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,6V12.4L15.5,15.1L16.25,13.8L12.5,11.6V6H11Z" />
-        </svg>
-        SmartQueue
-      </a>
-      
-        <nav class="nav-menu" id="nav-menu">
 
-    <a href="/" class="nav-link">Home</a>
-    <a href="/#features" class="nav-link">Features</a>
-    <a href="/#how-it-works" class="nav-link">How It Works</a>
-    <a href="/demo" class="nav-link">Live Demo</a>
-    <a href="/#pricing" class="nav-link">Pricing</a>
-    <a href="/#faq" class="nav-link">FAQ</a>
-    <a href="/#contact" class="nav-link">Contact</a>
+<body class="min-h-screen bg-[#070d18] text-white antialiased">
 
-    <div class="mobile-auth">
-        <a href="/login" class="btn btn-secondary">
-            Log In
-        </a>
 
-        <a href="/signup" class="btn btn-primary">
-            Sign Up
-        </a>
-    </div>
+    <!-- Header -->
+    <header
+        class="fixed left-0 right-0 top-0 z-50 h-[72px] border-b border-[#1c293c] bg-[#0a1220]/95 backdrop-blur-xl">
 
-</nav>
+        <div
+            class="mx-auto flex h-full max-w-[1500px] items-center justify-between px-5 sm:px-8">
 
-      <div class="nav-actions">
-        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark mode">
-          <!-- Sun Icon for Dark Theme -->
-          <svg class="sun-icon" viewBox="0 0 24 24">
-            <path d="M12,18C11.11,18 10.26,17.8 9.5,17.45C11.56,16.5 13,14.42 13,12C13,9.58 11.56,7.5 9.5,6.55C10.26,6.2 11.11,6 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69Z" />
-          </svg>
-          <!-- Moon Icon for Light Theme -->
-          <svg class="moon-icon" viewBox="0 0 24 24">
-            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z" />
-          </svg>
-        </button>
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-[10px] no-underline">
 
-       <a href="/login" class="btn btn-secondary">
-    Log In
-</a>
+                <svg viewBox="0 0 24 24"
+                    class="h-[34px] w-[34px] text-[#3b82f6]"
+                    fill="currentColor">
 
-<a href="/signup" class="btn btn-primary">
-    Sign Up
-</a>
-      </div>
+                    <path
+                        d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,6V12.4L15.5,15.1L16.25,13.8L12.5,11.6V6H11Z" />
 
-      <div class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-controls="nav-menu">
-        <i class="fas fa-bars"></i>
-      </div>
-    </div>
-  </header>
-<div class="auth-page">
+                </svg>
 
-    <div class="modal-container">
+                <div class="text-[21px] font-extrabold text-white">
+                    Smart<span class="text-[#3b82f6]">Queue</span>
+                </div>
 
-        <h3 style="margin-bottom:8px; padding:4px">Create Account</h3>
+            </a>
 
-        <form action="/signup" method="POST">
 
-            <input
-                type="text"
-                name="fullname"
-                placeholder="Full Name"
-                class="form-input"
-            style="margin: 5px 4px" required>
+            <!-- Login -->
+            <a href="/login"
+                class="rounded-[10px] border border-[#24334a] bg-[#101b2c] px-5 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-[#3b82f6]/50 hover:bg-[#15233a]">
+                <span class="text-white hover:text-[#3b82f6]">Login</span>
 
-            <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                class="form-input"
-                 style="margin: 5px 4px;"
-            required>
+            </a>
 
-            <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                class="form-input"
-                 style="margin: 5px 4px 15px"
-            required>
+        </div>
 
-            <button
-                class="btn btn-primary"
-                type="submit"
-            >
-                Signup
-            </button>
+    </header>
 
-        </form>
 
-    </div>
 
-</div>
-<script src="/js/index.js"></script>
+    <!-- Signup Area -->
+    <main
+        class="relative flex min-h-screen items-center justify-center overflow-hidden px-5 pb-10 pt-[110px]">
+
+
+        <!-- Background Glow -->
+        <div class="pointer-events-none absolute inset-0">
+
+            <div
+                class="absolute left-[8%] top-[12%] h-[420px] w-[420px] rounded-full bg-blue-500/[0.08] blur-[120px]">
+            </div>
+
+            <div
+                class="absolute bottom-[5%] right-[8%] h-[380px] w-[380px] rounded-full bg-indigo-500/[0.07] blur-[120px]">
+            </div>
+
+        </div>
+
+
+
+        <div class="relative z-10 w-full max-w-[460px]">
+
+
+            <!-- Signup Card -->
+            <div
+                class="rounded-[18px] border border-[#1e2d43] bg-[#0b1524] p-7 shadow-[0_25px_70px_rgba(0,0,0,0.35)] sm:p-9">
+
+
+                <!-- Heading -->
+                <div class="mb-8 text-center">
+
+                    <div
+                        class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-[14px] border border-blue-500/20 bg-blue-500/10">
+
+                        <svg viewBox="0 0 24 24"
+                            class="h-7 w-7 text-[#3b82f6]"
+                            fill="currentColor">
+
+                            <path
+                                d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,6V12.4L15.5,15.1L16.25,13.8L12.5,11.6V6H11Z" />
+
+                        </svg>
+
+                    </div>
+
+
+                    <h1 class="text-[28px] font-bold tracking-tight text-white">
+
+                        Create
+                        <span class="text-[#3b82f6]">Account</span>
+
+                    </h1>
+
+
+                    <p class="mt-2 text-sm text-[#71829d]">
+                        Join SmartQueue and manage your queue easily
+                    </p>
+
+                </div>
+
+
+
+                <!-- Signup Form -->
+                <form action="/signup" method="POST">
+
+
+                    <!-- Full Name -->
+                    <div class="mb-5">
+
+                        <label
+                            class="mb-2 block text-sm font-semibold text-slate-200">
+
+                            Full Name
+
+                        </label>
+
+
+                        <div class="relative">
+
+                            <i
+                                class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-sm text-[#71829d]">
+                            </i>
+
+
+                            <input
+                                type="text"
+                                name="fullname"
+                                placeholder="Enter your full name"
+                                required
+                                class="w-full rounded-[10px] border border-[#1e2d43] bg-[#111c2e] py-[13px] pl-11 pr-4 text-sm text-white outline-none transition placeholder:text-[#71829d] focus:border-[#3b82f6] focus:ring-4 focus:ring-blue-500/10">
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Email -->
+                    <div class="mb-5">
+
+                        <label
+                            class="mb-2 block text-sm font-semibold text-slate-200">
+
+                            Email
+
+                        </label>
+
+
+                        <div class="relative">
+
+                            <i
+                                class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-sm text-[#71829d]">
+                            </i>
+
+
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required
+                                class="w-full rounded-[10px] border border-[#1e2d43] bg-[#111c2e] py-[13px] pl-11 pr-4 text-sm text-white outline-none transition placeholder:text-[#71829d] focus:border-[#3b82f6] focus:ring-4 focus:ring-blue-500/10">
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Password -->
+                    <div class="mb-6">
+
+                        <label
+                            class="mb-2 block text-sm font-semibold text-slate-200">
+
+                            Password
+
+                        </label>
+
+
+                        <div class="relative">
+
+                            <i
+                                class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-sm text-[#71829d]">
+                            </i>
+
+
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder="Create a password"
+                                required
+                                class="w-full rounded-[10px] border border-[#1e2d43] bg-[#111c2e] py-[13px] pl-11 pr-4 text-sm text-white outline-none transition placeholder:text-[#71829d] focus:border-[#3b82f6] focus:ring-4 focus:ring-blue-500/10">
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Signup Button -->
+                    <button
+                        type="submit"
+                        class="flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#3b82f6] px-6 py-[13px] text-sm font-bold text-white transition hover:bg-blue-600 hover:shadow-[0_8px_25px_rgba(59,130,246,0.22)]">
+
+                        <i class="fa-solid fa-user-plus text-xs"></i>
+
+                        Create Account
+
+                    </button>
+
+                </form>
+
+
+
+                <!-- Divider -->
+                <div class="my-6 flex items-center gap-3">
+
+                    <div class="h-px flex-1 bg-[#1e2d43]"></div>
+
+                    <span class="text-xs text-[#71829d]">
+                        OR
+                    </span>
+
+                    <div class="h-px flex-1 bg-[#1e2d43]"></div>
+
+                </div>
+
+
+
+                <!-- Login Link -->
+                <p class="text-center text-sm text-[#71829d]">
+
+                    Already have an account?
+
+                    <a href="/login"
+                        class="font-semibold text-[#3b82f6] transition hover:text-blue-400 hover:underline">
+
+                        Login
+
+                    </a>
+
+                </p>
+
+            </div>
+
+
+
+            <!-- Footer -->
+            <p class="mt-5 text-center text-xs text-[#4f607a]">
+
+                SmartQueue Management System
+
+            </p>
+
+        </div>
+
+    </main>
+
+
+
+    <script src="/js/index.js"></script>
+
 </body>
+
 </html>

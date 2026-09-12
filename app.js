@@ -2,11 +2,10 @@ require('dotenv').config();
 
 const express = require('express');
 const app = express();
-
+const status=require('express-status-monitor')
 const http = require("http");
 const { Server } = require("socket.io");
 const { Resend } = require("resend");
-
 const resend = new Resend(
     process.env.RESEND_API_KEY
 );
@@ -32,6 +31,7 @@ io.on("connection",(socket)=>{
 
 });
 
+app.use(status());
 const db = require("./config/mongoose-connection");
 const path = require('path');
 const ejs = require('ejs');
@@ -60,11 +60,33 @@ app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 
 app.use(cookieParser());
+app.use(async (req, res, next) => {
+    res.locals.user = null;
+
+    const token = req.cookies.token;
+
+    if (token) {
+        try {
+            const data = jwt.verify(token, JWT_SECRET);
+
+            const user = await User.findById(data.id);
+
+            if (user) {
+                res.locals.user = user;
+            }
+        } catch (err) {
+            res.locals.user = null;
+        }
+    }
+
+    next();
+});
 
 app.use(express.urlencoded({
     extended:true
 }));
 
+app.use(express.static("public"))
 app.use(express.static(
     path.join(__dirname,"public")
 ));
@@ -173,9 +195,12 @@ app.get("/analytics",(req,res)=>{
 app.get(
     "/queue-management",
     isLoggedIn,
-    (req,res)=>{
-
-        res.render("queue");
+    async(req,res)=>{
+          const user =
+        await User.findById(
+            req.user.id
+        );
+        res.render("queue",{user});
 
     }
 );
@@ -248,9 +273,9 @@ app.post("/login",async(req,res)=>{
 
     if(!user){
 
-        return res.send(
-            "User not found"
-        );
+        return res.render("login",{
+            error:"User not found"
+    });
 
     }
 
@@ -351,25 +376,10 @@ function isLoggedIn(
 
 }
 
-app.get(
-    "/dashboard",
-    isLoggedIn,
-    async(req,res)=>{
-
-        const user =
-        await User.findById(
-            req.user.id
-        );
-
-        res.render(
-            "dashboard",
-            {
-                user
-            }
-        );
-
-    }
-);
+app.get("/dashboard",isLoggedIn, async(req, res) => {
+const user=await User.findById(req.user.id);
+  res.render("dashboard", {user });
+});
 
 app.post("/contact",(req,res)=>{
 
@@ -399,7 +409,7 @@ app.get("/logout",(req,res)=>{
 server.listen(PORT,()=>{
 
     console.log(
-        "Running on Port 3000"
+        `Running on localhost :${PORT}`
     );
 
 });
